@@ -35,3 +35,9 @@ class KNN:
                 correct += 1
         return correct / len(answer_key)
 
+knn = KNN()
+knn.fit(X_train,y_train)
+answers = []
+for v in X_test:
+    answers.append(knn.predict(v, 3))
+print(knn.accuracy(y_test, answers))
