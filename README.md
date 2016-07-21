@@ -8,6 +8,8 @@ Markov Chains:
 
 
 Linear Regression:
+
+
 	- Uni/Multivariate Linear Regression algorithm from scratch ft. options for Gradient Descent or Normal Equation
 	- Makes fancy plots and stuff
 	- Work in progress
