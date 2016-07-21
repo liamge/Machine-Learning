@@ -1,6 +1,5 @@
 import numpy as np
 import numpy.linalg as la
-import csv
 import matplotlib.pyplot as plt
 
 
@@ -11,6 +10,8 @@ class LinearRegression:
         self.m = len(y)
         self.theta = 0
         # mean and std need to be same dimensions as X
+        self.mean = np.zeros(self.X.size[0])
+        self.std = np.zeros(self.X.size[0])
 
     def gradientDescent(self, alpha, num_of_iterations, featureNormalize = True, plot = True):
         Xtrans = self.X.transpose()
@@ -32,10 +33,15 @@ class LinearRegression:
             plt.plot(cost_history, 'r')
             plt.ylabel('Cost')
             plt.xlabel('Iterations')
+            plt.title('Cost function with Gradient Descent')
             plt.show()
             plt.figure(1)
-            plt.plot(X, y,'o')
+            plt.plot(self.X, self.y,'o')
+            plt.xlabel('Features')
+            plt.ylabel('Value')
+            plt.title('Line of best fit')
             plt.plot(X,np.dot(X, self.theta))
+            plt.legend()
             plt.show()
         return self.theta
 
@@ -45,6 +51,8 @@ class LinearRegression:
         for column in range(len(X[0])):
             mn = np.array(np.mean(X[:,column]))
             std = np.array(np.std(X[:,column]))
+            self.mean[column] = mn
+            self.std[column] = std
             a = X[:,column] - mn
             normalizedX[:,[column]] = np.divide(a,std)
         return normalizedX
@@ -55,4 +63,5 @@ class LinearRegression:
         return self.theta
 
     def predict(self,x):
-        pass
+        normalizedX = np.divide((x - self.mean),self.std)
+        return np.dot(normalizedX, self.theta)
