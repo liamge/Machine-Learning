@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import e
 
-
+# Currently a work in progress
+# Need to implement Multiclass Classification
+# Need to implement regularization for high order polynomial features for non-linear solutions
 
 class LogisticRegressionClassifier:
     def fit(self,X,y):
