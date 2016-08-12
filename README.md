@@ -16,3 +16,8 @@ Linear Regression:
 	- Makes fancy plots and stuff
 	- Work in progress
 	- See more at: https://en.wikipedia.org/wiki/Linear_regression
+
+Principle Component Analysis:
+	
+	- Allows for dimensionality reduction of any feature set X
+	- Auto-selection of K enabled to choose least possible dimensions K s/t variance won't be reduced past a percentage that you can set
