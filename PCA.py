@@ -22,8 +22,8 @@ class PCA:
         denomenator = (1/self.m)*sum(self.S)
         return 1-(numerator/denomenator)
 
-    def compute_K(self):
+    def compute_K(self,min_var_loss):
         K = 1
-        while self.variance(K) <= 0.01:
+        while self.variance(K) >= min_var_loss:
             K += 1
         return K
